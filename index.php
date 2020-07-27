@@ -1,6 +1,11 @@
 <?php
-  $name = 'name.txt';
-  $info = 'info.txt';
+  $name = 'name.docs';
+  $info = 'info.docs';
+  $files = 'files.docs';
+
+  if (file_exists($files)) {
+    $fileName = parse_ini_file($files);
+  }
 ?>
 
 <!DOCTYPE html>
@@ -8,7 +13,15 @@
   <head>
     <meta charset="utf-8">
     <link rel="stylesheet" href="http://voj-tech.wz.cz/services/web/apps/docs/css/master.css">
-    <title><?php echo(substr($_SERVER['REQUEST_URI'], 1, -1)); ?></title>
+    <title>
+      <?php
+        if (file_exists($name)) {
+          echo(file_get_contents($name));
+        } else {
+          echo(substr($_SERVER['REQUEST_URI'], 1, -1));
+        }
+      ?>
+    </title>
   </head>
   <body>
     <?php if(file_exists($name)): ?>
@@ -27,9 +40,7 @@
     <table>
       <?php
         foreach (glob("*") as $soubor) {
-          if ($soubor != 'index.php') {
-            if ($soubor != $name) {
-              if ($soubor != $info) {
+              if ($soubor != 'index.php' && $soubor != $name && $soubor != $info && $soubor != $files) {
                 $velikost = filesize($soubor) . ' B';
                 if ($velikost > 1000) {
                   $velikost = number_format(substr($velikost, 0, -2) / 1000, 0, '.', '');
@@ -47,11 +58,15 @@
                     }
                   }
                 }
-                echo('<tr><td><img src="http://voj-tech.wz.cz/services/web/apps/docs/img/' . filetype($soubor) . '.png" alt="' . filetype($soubor) . '"></td><td><a href="' . $soubor . '">' . $soubor . '</a></td><td>' . $velikost . '</td><td>' . date('j.n. Y H:i:s', filemtime($soubor)) . '</td></tr>');
+                echo('<tr><td><img src="http://voj-tech.wz.cz/services/web/apps/docs/img/' . filetype($soubor) . '.png" alt="' . filetype($soubor) . '"></td><td><a href="' . $soubor . '">');
+                  if (isset($fileName) && isset($fileName[$soubor])) {
+                    echo(htmlspecialchars($fileName[$soubor]));
+                  } else {
+                    echo(htmlspecialchars($soubor));
+                  }
+                echo('</a></td><td>' . $velikost . '</td><td>' . date('j. n. Y H:i:s', filemtime($soubor)) . '</td></tr>');
               }
             }
-          }
-        }
       ?>
     </table>
     <?php
@@ -62,7 +77,7 @@
       }
     ?>
     <footer>
-      <p>powered by <a href="http://appportal.hys.cz/doku.php?id=projekty:web:apps:docs">docs</a></p>
+      <p>powered by <a href="http://appportal.hys.cz/doku.php?id=projekty:web:apps:docs">docs 2.0</a></p>
       <p>&copy; <?php echo($roky); ?> <a class="vt" href="http://voj-tech.wz.cz/">Voj-Tech</a></p>
     </footer>
   </body>
