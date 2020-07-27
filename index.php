@@ -3,6 +3,10 @@
   $info = 'info.txt';
   $files = 'files.txt';
 
+  if (file_exists($files)) {
+    $fileName = parse_ini_file($files);
+  }
+
   function vyhodnot($soubor, $name, $info, $files) {
     return($soubor != 'index.php' && $soubor != 'admin.php' && $soubor != $name && $soubor != $info && $soubor != $files);
   }
@@ -79,7 +83,29 @@
                     }
                   }
                 }
-                echo('<tr><td><img src="http://voj-tech.wz.cz/services/web/apps/docs/img/' . filetype($soubor) . '.png" alt="' . filetype($soubor) . '"></td><td><a href="' . $soubor . '">');
+                if (filetype($soubor) == 'dir') {
+                  $image = 'dir';
+                } else {
+                  $types = array(
+                    'application',
+                    'image',
+                    'text',
+                  );
+                  $shoda = false;
+                  foreach ($types as $type) {
+                    $fileType = mime_content_type($soubor);
+                    $fileArray = explode('/', $fileType);
+                    $fileShift = array_shift($fileArray);
+                    if ($fileShift == $type) {
+                      $image = $type;
+                      $shoda = true;
+                    }
+                  }
+                  if (!$shoda) {
+                    $image = 'file';
+                  }
+                }
+                echo('<tr><td><img src="http://voj-tech.wz.cz/services/web/apps/docs/img/' . $image . '.png" alt="' . filetype($soubor) . '"></td><td><a href="' . $soubor . '">');
                   if (isset($fileName) && isset($fileName[$soubor])) {
                     echo(htmlspecialchars($fileName[$soubor]));
                   } else {
