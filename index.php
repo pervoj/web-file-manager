@@ -3,6 +3,10 @@
   $info = 'info.txt';
   $files = 'files.txt';
 
+  if (file_exists($files)) {
+    $fileName = parse_ini_file($files);
+  }
+
   function vyhodnot($soubor, $name, $info, $files) {
     return($soubor != 'index.php' && $soubor != 'admin.php' && $soubor != $name && $soubor != $info && $soubor != $files);
   }
@@ -79,7 +83,31 @@
                     }
                   }
                 }
-                echo('<tr><td><img src="http://voj-tech.wz.cz/services/web/apps/docs/img/' . filetype($soubor) . '.png" alt="' . filetype($soubor) . '"></td><td><a href="' . $soubor . '">');
+                if (filetype($soubor) == 'dir') {
+                  $image = 'dir';
+                } else {
+                  $types = array(
+                    'application',
+                    'image',
+                    'audio',
+                    'video',
+                    'text',
+                  );
+                  $shoda = false;
+                  foreach ($types as $type) {
+                    $fileType = mime_content_type($soubor);
+                    $fileArray = explode('/', $fileType);
+                    $fileShift = array_shift($fileArray);
+                    if ($fileShift == $type) {
+                      $image = $type;
+                      $shoda = true;
+                    }
+                  }
+                  if (!$shoda) {
+                    $image = 'file';
+                  }
+                }
+                echo('<tr><td><img src="http://voj-tech.wz.cz/services/web/apps/docs/img/' . $image . '.png" alt="' . filetype($soubor) . '"></td><td><a href="' . $soubor . '">');
                   if (isset($fileName) && isset($fileName[$soubor])) {
                     echo(htmlspecialchars($fileName[$soubor]));
                   } else {
@@ -98,7 +126,7 @@
       }
     ?>
     <footer>
-      <p>powered by <a href="http://appportal.hys.cz/doku.php?id=projekty:web:apps:docs">docs 3.0</a></p>
+      <p>powered by <a href="http://appportal.hys.cz/doku.php?id=projekty:web:apps:docs">docs 4.0</a></p>
       <p>&copy; <?php echo($roky); ?> <a class="vt" href="http://voj-tech.wz.cz/">Voj-Tech</a></p>
     </footer>
   </body>
