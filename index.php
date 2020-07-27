@@ -1,10 +1,30 @@
 <?php
-  $name = 'name.docs';
-  $info = 'info.docs';
-  $files = 'files.docs';
+  $name = 'name.txt';
+  $info = 'info.txt';
+  $files = 'files.txt';
 
-  if (file_exists($files)) {
-    $fileName = parse_ini_file($files);
+  function vyhodnot($soubor, $name, $info, $files) {
+    return($soubor != 'index.php' && $soubor != 'admin.php' && $soubor != $name && $soubor != $info && $soubor != $files);
+  }
+
+  function serad($soubory = array()) {
+    $abecedne = $soubory;
+    sort($abecedne);
+    $slozkove = array();
+
+    foreach ($abecedne as $soubor) {
+      if (filetype($soubor) === 'dir') {
+        $slozkove[] = $soubor;
+      }
+    }
+
+    foreach ($abecedne as $soubor) {
+      if (filetype($soubor) === 'file') {
+        $slozkove[] = $soubor;
+      }
+    }
+
+    return $slozkove;
   }
 ?>
 
@@ -39,8 +59,9 @@
     </ul>
     <table>
       <?php
-        foreach (glob("*") as $soubor) {
-              if ($soubor != 'index.php' && $soubor != $name && $soubor != $info && $soubor != $files) {
+        $soubory = serad(glob('*'));
+        foreach ($soubory as $soubor) {
+              if (vyhodnot($soubor, $name, $info, $files)) {
                 $velikost = filesize($soubor) . ' B';
                 if ($velikost > 1000) {
                   $velikost = number_format(substr($velikost, 0, -2) / 1000, 0, '.', '');
@@ -77,7 +98,7 @@
       }
     ?>
     <footer>
-      <p>powered by <a href="http://appportal.hys.cz/doku.php?id=projekty:web:apps:docs">docs 2.0</a></p>
+      <p>powered by <a href="http://appportal.hys.cz/doku.php?id=projekty:web:apps:docs">docs 3.0</a></p>
       <p>&copy; <?php echo($roky); ?> <a class="vt" href="http://voj-tech.wz.cz/">Voj-Tech</a></p>
     </footer>
   </body>
