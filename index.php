@@ -89,6 +89,7 @@
                   $types = array(
                     'application',
                     'image',
+                    'audio',
                     'video',
                     'text',
                   );
