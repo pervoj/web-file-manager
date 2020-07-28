@@ -5,6 +5,7 @@ Aplikace *docs* prochází adresáře na hostingu. Pokud tedy chcete vytvořit n
 Použití je jednoduché:
 1. Stáhněte si jednu z verzí projektu.
 2. Nahrajte na hosting soubor `index.php`.
+	- Soubor je třeba nahrát do každého adresáře, kde chcete vypisovat obsah.
 3. Do stejného adresáře k `index.php` nahrajte vaše soubory.
 4. Pokud chcete, můžete přidat následující soubory:
     - **name.txt** - Do tohoto souboru napište nadpis stránky.
