@@ -10,7 +10,7 @@ Použití je jednoduché:
 4. Pokud chcete, můžete přidat následující soubory:
     - **name.txt** - Do tohoto souboru napište nadpis stránky.
     - **info.txt** - Do tohoto souboru napište obsah stránky (popis adresáře). Můžete použít i `HTML` tagy.
-    - **files.txt** - Do tohoto souboru napište seznam zobrazovaných jmen souborů. Vše ve formátu `ini` souboru (původní jméno=nové jméno). Seznam nemusí obsahovat všechny soubory v adresáři.
+    - **files.txt** - Do tohoto souboru napište seznam zobrazovaných jmen souborů. Vše ve formátu `ini` souboru (původní jméno=nové jméno). Pokud jako nové jméno nastavíte `.`, soubor se skryje. Seznam nemusí obsahovat všechny soubory v adresáři.
     - Pro správné zobrazení obsahu souborů ve stránce je doporučeno použít kódování `UTF-8`.
     - Tyto soubory aplikace nevypisuje.
     - Použití těchto souborů není povinné.
