@@ -7,8 +7,8 @@
     $fileName = parse_ini_file($files);
   }
 
-  function vyhodnot($soubor, $name, $info, $files) {
-    return($soubor != 'index.php' && $soubor != 'admin.php' && $soubor != $name && $soubor != $info && $soubor != $files);
+  function vyhodnot($soubor, $name, $info, $files, $fName) {
+    return($soubor != 'index.php' && $soubor != 'admin.php' && $soubor != $name && $soubor != $info && $soubor != $files && $fName != '.');
   }
 
   function serad($soubory = array()) {
@@ -65,7 +65,12 @@
       <?php
         $soubory = serad(glob('*'));
         foreach ($soubory as $soubor) {
-              if (vyhodnot($soubor, $name, $info, $files)) {
+              if (isset($fileName) && isset($fileName[$soubor])) {
+                $souborJmeno = htmlspecialchars($fileName[$soubor]);
+              } else {
+                $souborJmeno = htmlspecialchars($soubor);
+              }
+              if (vyhodnot($soubor, $name, $info, $files, $souborJmeno)) {
                 $velikost = filesize($soubor) . ' B';
                 if ($velikost > 1000) {
                   $velikost = number_format(substr($velikost, 0, -2) / 1000, 0, '.', '');
@@ -108,11 +113,7 @@
                   }
                 }
                 echo('<tr><td><img src="http://voj-tech.wz.cz/services/web/apps/docs/img/' . $image . '.png" alt="' . filetype($soubor) . '"></td><td><a href="' . $soubor . '">');
-                  if (isset($fileName) && isset($fileName[$soubor])) {
-                    echo(htmlspecialchars($fileName[$soubor]));
-                  } else {
-                    echo(htmlspecialchars($soubor));
-                  }
+                  echo($souborJmeno);
                 echo('</a></td><td>' . $velikost . '</td><td>' . date('j. n. Y H:i:s', filemtime($soubor)) . '</td></tr>');
               }
             }
