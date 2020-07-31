@@ -127,7 +127,7 @@
       }
     ?>
     <footer>
-      <p>powered by <a href="http://appportal.hys.cz/doku.php?id=projekty:web:apps:docs">docs 4.0</a></p>
+      <p>powered by <a href="https://gitlab.com/voj-tech-sw/docs/">docs 2020.5.1</a></p>
       <p>&copy; <?php echo($roky); ?> <a class="vt" href="http://voj-tech.wz.cz/">Voj-Tech</a></p>
     </footer>
   </body>
