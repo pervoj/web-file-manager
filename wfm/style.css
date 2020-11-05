@@ -1,0 +1,15 @@
+table {
+    width: 100%;
+}
+
+tr {
+    border-bottom: 0.5px solid lightgray;
+}
+
+td {
+    padding: 5px;
+}
+
+.td-img {
+    width: 16px;
+}
