@@ -60,6 +60,8 @@
                 <div class="file-preview-video">
                     <video class="container" src="<?= PATH ?>" controls></video>
                 </div>
+            <?php else: ?>
+                <p>Preview of this file isn't aviable.</p>
             <?php endif; ?>
         </div>
     </div>
