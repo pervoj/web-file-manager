@@ -1,11 +1,18 @@
 <?php
     include('header.php');
 ?>
+
     <table>
         <?php
-        $fls = sortFiles(glob('.' . PATH . '/*'));
-        if (PATH != "") {
-            $files[] = "..";
+        $fls = array();
+        if (empty(PATH)) {
+            $fls = sortFiles(glob('*'));
+        } else {
+            $fls = sortFiles(glob('.' . PATH . '/*'));
+        }
+        $files = array();
+        if (!empty(PATH)) {
+            $files[] = '..';
         }
         foreach ($fls as $fl) {
             $files[] = $fl;
@@ -13,24 +20,9 @@
         foreach ($files as $file) {
             $fa = explode("/", htmlspecialchars($file));
             $fileName = $fa[sizeof($fa) - 1];
-            if ($file != "./wfm" && $file != "./directory.php" && $file != "./LICENSE" && $file != "./README.md") {
-                $size = filesize($file) . ' B';
-                if ($size > 1000) {
-                    $size = number_format(substr($size, 0, -2) / 1000, 0, '.', '');
-                    $size = $size . ' kB';
-                    if ($size > 1000) {
-                        $size = number_format(substr($size, 0, -3) / 1000, 0, '.', '');
-                        $size = $size . ' MB';
-                        if ($size > 1000) {
-                            $size = number_format(substr($size, 0, -3) / 1000, 0, '.', '');
-                            $size = $size . ' GB';
-                            if ($size > 1000) {
-                                $size = number_format(substr($size, 0, -3) / 1000, 0, '.', '');
-                                $size = $size . ' TB';
-                            }
-                        }
-                    }
-                }
+            if ($file != "wfm" && $file != "index.php" && $file != "LICENSE" && $file != "README.md") {
+                $size = getSize(filesize($file));
+                $image = "";
                 if (filetype($file) == 'dir') {
                     $image = 'dir';
                 } else {
@@ -75,7 +67,8 @@
                     $newPathA[] = $fileName;
                     $newPath = '?d=' . join('/', $newPathA);
                 } else {
-                    $newPath = $file;
+                    $newPathA = explode('/', PATH);
+                    $newPath = '?d=' . join('/', $newPathA) . '&f=' . basename($file);
                 }
                 echo('<a href="' . $newPath . '">' . $fileName . '</a>');
                 echo('</td><td class="td-size">' . $size . '</td><td class="td-date">' . $date . '</td></tr>');
@@ -83,6 +76,7 @@
         }
         ?>
     </table>
+
 <?php
     include('footer.php');
 ?>

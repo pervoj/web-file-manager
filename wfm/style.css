@@ -13,3 +13,28 @@ td {
 .td-img {
     width: 16px;
 }
+
+.file {
+    text-align: center;
+}
+
+.file-name {
+    font-size: 2em;
+}
+
+.file-meta {
+    margin-top: 30px;
+    margin-bottom: 20px;
+}
+
+.file-preview {
+    margin-top: 25px;
+}
+
+.file-preview-text {
+    text-align: left;
+    border: 1px solid lightgray;
+    border-radius: 5px;
+    padding: 5px;
+    font-family: monospace;
+}
