@@ -13,6 +13,13 @@
         $d = "";
     }
 
-    define('DIR', $d);
+    if ($_GET['f'] && !empty($_GET['f'])) {
+        $f = $_GET['f'];
+        $f = str_replace('/', '', $f);
 
-    include('wfm/index.php');
+        define('PATH', $d . '/' . $f);
+        include('wfm/file.php');
+    } else {
+        define('PATH', $d);
+        include('wfm/directory.php');
+    }
