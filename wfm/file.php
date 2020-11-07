@@ -5,6 +5,8 @@
     unset($backA[sizeof($backA) - 1]);
     $back = '?d=' . join('/', $backA);
 ?>
+
+<?php if (file_exists(PATH)): ?>
     <table>
         <tr>
             <td class="td-img">
@@ -61,10 +63,13 @@
                     <video class="container" src="<?= PATH ?>" controls></video>
                 </div>
             <?php else: ?>
-                <p>Preview of this file isn't aviable.</p>
+                <p>No preview available for this file.</p>
             <?php endif; ?>
         </div>
     </div>
+<?php else: ?>
+    <div class="file">This file doesn't exist.</div>
+<?php endif; ?>
 
 <?php
     include('footer.php');
