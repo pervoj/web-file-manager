@@ -2,7 +2,7 @@
 name: Idea
 about: Ideas and tips
 title: ''
-labels: ''
+labels: Idea
 assignees: ''
 
 ---

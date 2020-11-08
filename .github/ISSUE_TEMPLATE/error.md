@@ -2,7 +2,7 @@
 name: Error
 about: Errors and bugs
 title: ''
-labels: ''
+labels: Error
 assignees: ''
 
 ---
