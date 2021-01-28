@@ -39,3 +39,20 @@
         }
         return $size;
     }
+
+    function getFAClass($type) {
+        $faClasses = array(
+            'application' => 'fas fa-terminal',
+            'application/pdf' => 'far fa-file-pdf',
+            'image' => 'far fa-file-image',
+            'audio' => 'far fa-file-audio',
+            'video' => 'far fa-file-video',
+            'text' => 'far fa-file-alt',
+            'file' => 'far fa-file',
+            'dir' => 'far fa-folder',
+            'up' => 'fas fa-level-up-alt',
+            'download' => 'fas fa-download',
+            'login' => 'fas fa-sign-in-alt',
+        );
+        return $faClasses[$type];
+    }

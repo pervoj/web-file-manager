@@ -11,14 +11,14 @@
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css" integrity="sha384-TX8t27EcRE3e/ihU7zmQxVncDAy5uIKz4rEkgIXeMed4M0jlfIDPvg6uqKI2xXr2" crossorigin="anonymous">
     <link rel="stylesheet" href="wfm/style.css">
     <link rel="stylesheet" href="style.css">
-    <script src="https://kit.fontawesome.com/5fdececd29.js" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.2/js/all.js" integrity="sha512-yo/DGaftoLvI3LRwd6sVDlo4zu1AhQg+ej3UruAEzwWuzmNZglbF3luwTif1l9wvHZmLRp8Wyiv8wloA9JsVyA==" crossorigin="anonymous"></script>
     <title>Web file manager</title>
 </head>
 <body>
 <nav class="navbar navbar-dark bg-dark">
     <span class="navbar-brand mb-0 h1">Web file manager</span>
     <form class="form-inline">
-        <button class="btn btn-outline-success" disabled><span class="fas fa-sign-in-alt"></span> Login</button>
+        <button class="btn btn-outline-success" disabled><span class="<?= getFAClass('login'); ?>"></span> Login</button>
     </form>
 </nav>
 <div class="container">

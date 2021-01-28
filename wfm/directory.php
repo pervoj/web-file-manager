@@ -22,12 +22,13 @@
             $fileName = $fa[sizeof($fa) - 1];
             if ($file != "wfm" && $file != "index.php" && $file != "LICENSE" && $file != "README.md") {
                 $size = getSize(filesize($file));
-                $image = "";
+                $faClass = "";
                 if (filetype($file) == 'dir') {
-                    $image = 'dir';
+                    $faClass = getFAClass('dir');
                 } else {
                     $types = array(
                         'application',
+                        'application/pdf',
                         'image',
                         'audio',
                         'video',
@@ -38,22 +39,22 @@
                         $fileType = mime_content_type($file);
                         $fileArray = explode('/', $fileType);
                         $fileShift = array_shift($fileArray);
-                        if ($fileShift == $type) {
-                            $image = $type;
+                        if ($fileShift == $type || $fileType == $type) {
+                            $faClass = getFAClass($type);
                             $conformity = true;
                         }
                     }
                     if (!$conformity) {
-                        $image = 'file';
+                        $faClass = getFAClass('file');
                     }
                 }
                 $date = date('j.n.Y H:i:s', filemtime($file));
                 if ($file == '..') {
                     $size = '';
-                    $image = 'up';
+                    $faClass = getFAClass('up');
                     $date = '';
                 }
-                echo('<tr><td class="td-img"><img src="wfm/image/' . $image . '.png" alt="' . filetype($file) . '"></td><td class="td-name">');
+                echo('<tr><td class="td-img"><span class="' . $faClass . '"></span></td><td class="td-name">');
                 if ($file == "..") {
                     if (PATH == "") {
                         $newPath = "";

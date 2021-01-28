@@ -13,7 +13,7 @@
     <table>
         <tr>
             <td class="td-img">
-                <img src="wfm/image/up.png" alt="up">
+                <span class="<?= getFAClass('up'); ?>"></span>
             </td>
             <td>
                 <a href="<?= $back ?>">Back</a>
@@ -44,7 +44,7 @@
             </table>
         </div>
 
-        <a class="btn btn-success" href="<?= PATH ?>" download><span class="fas fa-download"></span> Download</a>
+        <a class="btn btn-success" href="<?= PATH ?>" download><span class="<?= getFAClass('download'); ?>"></span> Download</a>
 
         <div class="file-preview">
             <?php
