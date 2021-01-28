@@ -4,6 +4,9 @@
     $backA = explode('/', PATH);
     unset($backA[sizeof($backA) - 1]);
     $back = '?d=' . join('/', $backA);
+
+    $fa = explode("/", htmlspecialchars(PATH));
+    $fileName = $fa[sizeof($fa) - 1];
 ?>
 
 <?php if (file_exists(PATH)): ?>
@@ -19,7 +22,7 @@
     </table>
 
     <div class="file">
-        <span class="file-name"><?= htmlspecialchars(basename(PATH)); ?></span>
+        <span class="file-name"><?= htmlspecialchars($fileName); ?></span>
 
         <div class="file-meta">
             <table>
@@ -48,6 +51,9 @@
                 $fileMime = mime_content_type(PATH);
                 $fileMimeA = explode('/', $fileMime);
                 $fileType = array_shift($fileMimeA);
+
+                $fileExtensionA = explode(".", $fileName);
+                $fileExtension = $fileExtensionA[sizeof($fileExtensionA) - 1];
             ?>
 
             <?php if ($fileType == 'text'): ?>
@@ -61,6 +67,10 @@
             <?php elseif ($fileType == 'video'): ?>
                 <div class="file-preview-video">
                     <video class="container" src="<?= PATH ?>" controls></video>
+                </div>
+            <?php elseif ($fileExtension == 'pdf'): ?>
+                <div class="file-preview-pdf">
+                    <embed class="container" src="<?= PATH ?>" type="application/pdf">
                 </div>
             <?php else: ?>
                 <p>No preview available for this file.</p>

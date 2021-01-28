@@ -68,7 +68,7 @@
                     $newPath = '?d=' . join('/', $newPathA);
                 } else {
                     $newPathA = explode('/', PATH);
-                    $newPath = '?d=' . join('/', $newPathA) . '&f=' . basename($file);
+                    $newPath = '?d=' . join('/', $newPathA) . '&f=' . $fileName;
                 }
                 echo('<a href="' . $newPath . '">' . $fileName . '</a>');
                 echo('</td><td class="td-size">' . $size . '</td><td class="td-date">' . $date . '</td></tr>');
