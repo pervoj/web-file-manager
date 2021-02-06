@@ -1,5 +1,9 @@
 <?php
-    include('header.php');
+    if (!defined('ACTION') || ACTION != 'files') {
+        die('Permission denied');
+    }
+
+    include('wfm/header.php');
 
     $backA = explode('/', PATH);
     unset($backA[sizeof($backA) - 1]);
@@ -38,7 +42,7 @@
                 </tr>
                 <tr>
                     <td>
-                        <strong>Date of creation:</strong> <?= htmlspecialchars(date('j.n.Y H:i:s', filemtime(PATH))); ?>
+                        <strong>Date of modification:</strong> <?= htmlspecialchars(date('j.n.Y H:i:s', filemtime(PATH))); ?>
                     </td>
                 </tr>
             </table>
@@ -58,7 +62,7 @@
 
             <?php if ($fileType == 'text'): ?>
                 <div class="file-preview-text">
-                    <?= htmlspecialchars(file_get_contents(PATH)); ?>
+                    <pre><code><?= htmlspecialchars(file_get_contents(PATH)); ?></code></pre>
                 </div>
             <?php elseif ($fileType == 'image'): ?>
                 <div class="container" class="file-preview-image">
@@ -82,5 +86,5 @@
 <?php endif; ?>
 
 <?php
-    include('footer.php');
+    include('wfm/footer.php');
 ?>

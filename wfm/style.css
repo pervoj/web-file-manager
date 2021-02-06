@@ -1,3 +1,9 @@
+code {
+    background: lightgray;
+    padding: 2px;
+    border-radius: 2px;
+}
+
 table {
     width: 100%;
 }
@@ -12,6 +18,10 @@ td {
 
 .td-img {
     width: 16px;
+}
+
+.dir-alert {
+    margin-top: 20px;
 }
 
 .file {
@@ -31,14 +41,36 @@ td {
     margin-top: 25px;
 }
 
-.file-preview-text {
+.file-preview-text pre {
     text-align: left;
-    border: 1px solid lightgray;
     border-radius: 5px;
-    padding: 5px;
-    font-family: monospace;
 }
 
 .file-preview-pdf embed {
     height: 95vh;
+}
+
+.form-login {
+    padding-top: 15px;
+}
+
+.admin-user-name {
+    margin-left: 15px;
+}
+
+.admin-user-name a {
+    color: #fff;
+}
+
+.admin-action-delete {
+    color: #dc3545;
+    margin-right: 10px;
+}
+
+.admin-action-upload {
+    margin-top: 10px;
+}
+
+.admin-action-upload input[type=file], .admin-action-upload label {
+    margin: 5px 0;
 }

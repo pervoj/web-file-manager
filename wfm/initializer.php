@@ -52,7 +52,19 @@
             'dir' => 'far fa-folder',
             'up' => 'fas fa-level-up-alt',
             'download' => 'fas fa-download',
+            'upload' => 'fas fa-upload',
+            'admin' => 'fas fa-cogs',
             'login' => 'fas fa-sign-in-alt',
+            'logout' => 'fas fa-sign-out-alt',
+            'user' => 'fas fa-user',
+            'pass' => 'fas fa-lock',
+            'delete' => 'far fa-trash-alt',
+            'move' => 'fas fa-arrows-alt',
+            'new' => 'fas fa-plus',
         );
         return $faClasses[$type];
+    }
+
+    function contains($text, $part) {
+        return (strpos($text, $part) !== false);
     }
