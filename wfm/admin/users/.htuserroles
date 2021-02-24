@@ -1,0 +1,6 @@
+; Here specify roles for all users as username=rolename
+
+admin=admin
+corrector=corrector
+uploader=uploader
+user=user

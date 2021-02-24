@@ -19,20 +19,13 @@
     }
 
     if (isset($_POST['user']) && !empty($_POST['pass']) && isset($_POST['pass']) && !empty($_POST['pass'])) {
-        if (contains($_POST['user'], ' ') || contains($_POST['user'], '.') || contains($_POST['user'], ',') || contains($_POST['user'], '=') || contains($_POST['user'], '?') || contains($_POST['user'], '%') || contains($_POST['user'], '/') || contains($_POST['user'], '|') || contains($_POST['user'], '\\') || contains($_POST['user'], '*') || contains($_POST['user'], '+') || contains($_POST['user'], '-')) {
-            $messageText = 'Remove forbidden characters from username (<code> </code>, <code>.</code>, <code>,</code>, <code>=</code>, <code>?</code>, <code>%</code>, <code>/</code>, <code>|</code>, <code>\</code>, <code>*</code>, <code>+</code>, <code>-</code>)';
+        if (contains($_POST['user'], ' ') || contains($_POST['user'], '.') || contains($_POST['user'], '_') || contains($_POST['user'], ',') || contains($_POST['user'], '=') || contains($_POST['user'], '?') || contains($_POST['user'], '%') || contains($_POST['user'], '/') || contains($_POST['user'], '|') || contains($_POST['user'], '\\') || contains($_POST['user'], '*') || contains($_POST['user'], '+') || contains($_POST['user'], '-')) {
+            $messageText = 'Remove forbidden characters from username (<code> </code>, <code>.</code>, <code>_</code>, <code>,</code>, <code>=</code>, <code>?</code>, <code>%</code>, <code>/</code>, <code>|</code>, <code>\</code>, <code>*</code>, <code>+</code>, <code>-</code>)';
             $messageType = 'danger';
         } else {
-            $users = parse_ini_file('wfm/.htusers');
-
-            if (isset($users[$_POST['user']]) && password_verify($_POST['pass'], $users[$_POST['user']])) {
-                //$messageText = 'Correct password';
-                //$messageType = 'success';
-            } elseif (isset($users['%' . $_POST['user'] . '%']) && $users['%' . $_POST['user'] . '%'] == $_POST['pass']) {
-                //$messageText = 'Correct predefined password';
-                //$messageType = 'success';
+            if (isPassValid($_POST['user'], $_POST['pass'])) {
                 $_SESSION['wfm_user'] = htmlspecialchars($_POST['user']);
-                header('Location: index.php?a=home');
+                header('Location: index.php');
                 exit();
             } else {
                 $messageText = 'Incorrect username or password';

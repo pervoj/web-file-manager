@@ -1,5 +1,5 @@
 <?php
-    if (!isset($_SESSION['wfm_user'])) {
+    if (!isset($_SESSION['wfm_user']) || !canUserDo($_SESSION['wfm_user'], 'dirs')) {
         die('Permission denied');
     }
 

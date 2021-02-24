@@ -1,0 +1,16 @@
+; How to specify new role
+; %%%%%%%%%%%%%%%%%%%%%%%
+; Specify new roles as rolename=privilegescode
+; privilegescode is six digits long code composed of 0 (prohibited) or 1 (allowed)
+; meaning of individual digits (values: 1 as true, 0 as false):
+;     1. - Has user privilege edit user settings?
+;     2. - Has user privilege delete files and directories?
+;     3. - Has user privilege move files and directories?
+;     4. - Has user privilege rename files and directories?
+;     5. - Has user privilege create new directories?
+;     6. - Has user privilege upload files and directories?
+
+admin=111111
+corrector=011111
+uploader=000001
+user=000000

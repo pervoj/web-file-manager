@@ -42,7 +42,7 @@
 
             <form class="form-inline my-2 my-lg-0">
                 <a href="index.php?a=logout" class="btn btn-outline-danger"><span class="<?= getFAClass('logout'); ?>"></span> Logout</a>
-                <span class="admin-user-name"><a href="index.php?a=profile">admin</a></span>
+                <span class="admin-user-name"><a href="index.php?a=profile"><?= $_SESSION['wfm_user']; ?></a></span>
             </form>
     </nav>
 <?php else: ?>

@@ -1,6 +1,7 @@
 <?php
     session_start();
     include('wfm/initializer.php');
+    include('wfm/admin/users/manager.php');
 
     if ((isset($_GET['a']) && !empty($_GET['a']) && !isset($adminUnknownAction)) || isset($_POST['admin'])) {
         if (isset($_GET['a'])) {

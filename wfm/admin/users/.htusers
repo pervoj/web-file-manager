@@ -1,0 +1,10 @@
+; Here specify all users who will be able to login to your WFM webpage
+; Specify each user as username=passwordhash where you replace passwordhash with hash
+; Password hash can be generated on https://phppasswordhash.com/ website, in the select box select PASSWORD_DEFAULT
+; If you want to set a password without using a hash directly into this file, type it as %username%=unhashedpassword
+; Warning: We don't recommend to creating users without hashing passwords, because it is not 100% safe. Use this feature at your own risk.
+
+%admin%=admin
+%corrector%=corrector
+%uploader%=uploader
+%user%=user
