@@ -30,32 +30,7 @@
             $fileName = $fa[sizeof($fa) - 1];
             if ($file != "wfm" && $file != "index.php" && $file != "LICENSE" && $file != "README.md") {
                 $size = getSize(filesize($file));
-                $faClass = "";
-                if (filetype($file) == 'dir') {
-                    $faClass = getFAClass('dir');
-                } else {
-                    $types = array(
-                        'application',
-                        'application/pdf',
-                        'image',
-                        'audio',
-                        'video',
-                        'text',
-                    );
-                    $conformity = false;
-                    foreach ($types as $type) {
-                        $fileType = mime_content_type($file);
-                        $fileArray = explode('/', $fileType);
-                        $fileShift = array_shift($fileArray);
-                        if ($fileShift == $type || $fileType == $type) {
-                            $faClass = getFAClass($type);
-                            $conformity = true;
-                        }
-                    }
-                    if (!$conformity) {
-                        $faClass = getFAClass('file');
-                    }
-                }
+                $faClass = getFileFAClass($file);
                 $date = date('j.n.Y H:i:s', filemtime($file));
                 if ($file == '..') {
                     $size = '';

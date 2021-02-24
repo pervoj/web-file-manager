@@ -20,13 +20,16 @@
                 <span class="<?= getFAClass('up'); ?>"></span>
             </td>
             <td>
-                <a href="<?= $back ?>">Back</a>
+                <a href="<?= $back; ?>">Back</a>
             </td>
         </tr>
     </table>
 
     <div class="file">
-        <span class="file-name"><?= htmlspecialchars($fileName); ?></span>
+        <span class="file-name">
+            <span class="<?= getFileFAClass(PATH); ?>"></span>
+            <?= htmlspecialchars($fileName); ?>
+        </span>
 
         <div class="file-meta">
             <table>
@@ -48,16 +51,13 @@
             </table>
         </div>
 
-        <a class="btn btn-success" href="<?= PATH ?>" download><span class="<?= getFAClass('download'); ?>"></span> Download</a>
+        <a class="btn btn-success" href="<?= PATH; ?>" download><span class="<?= getFAClass('download'); ?>"></span> Download</a>
 
         <div class="file-preview">
             <?php
                 $fileMime = mime_content_type(PATH);
                 $fileMimeA = explode('/', $fileMime);
                 $fileType = array_shift($fileMimeA);
-
-                $fileExtensionA = explode(".", $fileName);
-                $fileExtension = $fileExtensionA[sizeof($fileExtensionA) - 1];
             ?>
 
             <?php if ($fileType == 'text'): ?>
@@ -66,16 +66,27 @@
                 </div>
             <?php elseif ($fileType == 'image'): ?>
                 <div class="container" class="file-preview-image">
-                    <img src="<?= PATH ?>">
+                    <img src="<?= PATH; ?>">
                 </div>
             <?php elseif ($fileType == 'video'): ?>
                 <div class="file-preview-video">
-                    <video class="container" src="<?= PATH ?>" controls></video>
+                    <video class="container" src="<?= PATH; ?>" controls></video>
                 </div>
-            <?php elseif ($fileExtension == 'pdf'): ?>
+            <?php elseif (getExtension($fileName) == 'pdf'): ?>
                 <div class="file-preview-pdf">
-                    <embed class="container" src="<?= PATH ?>" type="application/pdf">
+                    <embed class="container" src="<?= PATH; ?>" type="application/pdf">
                 </div>
+            <?php elseif (getExtension($fileName) == 'pptx'): ?>
+                <div class="file-preview-pptx" id="presentation-preview"></div>
+                <script>
+                    $("#presentation-preview").pptxToHtml({
+                        pptxFileUrl: "<?= PATH; ?>",
+                        slideMode: false,
+                        keyBoardShortCut: false
+                    });
+                </script>
+            <?php elseif (getExtension($fileName) == 'odt' || getExtension($fileName) == 'odp' || getExtension($fileName) == 'ods'): ?>
+                <iframe class="file-preview-odf" src="wfm/libs/viewerjs/#../../../<?= PATH; ?>" ></iframe>
             <?php else: ?>
                 <p>No preview available for this file.</p>
             <?php endif; ?>

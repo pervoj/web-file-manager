@@ -5,12 +5,20 @@
     <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css" integrity="sha384-TX8t27EcRE3e/ihU7zmQxVncDAy5uIKz4rEkgIXeMed4M0jlfIDPvg6uqKI2xXr2" crossorigin="anonymous">
-    <link rel="stylesheet" href="wfm/style.css">
-    <link rel="stylesheet" href="style.css">
     <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.2/js/all.js" integrity="sha512-yo/DGaftoLvI3LRwd6sVDlo4zu1AhQg+ej3UruAEzwWuzmNZglbF3luwTif1l9wvHZmLRp8Wyiv8wloA9JsVyA==" crossorigin="anonymous"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.5.0/styles/atom-one-dark-reasonable.min.css">
     <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.5.0/highlight.min.js"></script>
     <script>hljs.initHighlightingOnLoad();</script>
+    <link rel="stylesheet" href="wfm/libs/pptxjs/css/pptxjs.css">
+    <link rel="stylesheet" href="wfm/libs/pptxjs/css/nv.d3.min.css">
+    <script src="wfm/libs/pptxjs/js/jquery-1.11.3.min.js"></script>
+    <script src="wfm/libs/pptxjs/js/jszip.min.js"></script>
+    <script src="wfm/libs/pptxjs/js/filereader.js"></script>
+    <script src="wfm/libs/pptxjs/js/d3.min.js"></script>
+    <script src="wfm/libs/pptxjs/js/nv.d3.min.js"></script>
+    <script src="wfm/libs/pptxjs/js/pptxjs.js"></script>
+    <script src="wfm/libs/pptxjs/js/divs2slides.js"></script>
+    <link rel="stylesheet" href="wfm/style.css">
     <title>Web file manager</title>
 </head>
 <body>
