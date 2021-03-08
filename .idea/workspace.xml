@@ -5,11 +5,8 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="5268b5c2-272b-41ee-944a-d35f68006783" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/wfm/.htconfig" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/README__222.md" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/wfm/header.php" beforeDir="false" afterPath="$PROJECT_DIR$/wfm/header.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/wfm/initializer.php" beforeDir="false" afterPath="$PROJECT_DIR$/wfm/initializer.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -71,7 +68,7 @@
       <workItem from="1614193420886" duration="2436000" />
       <workItem from="1614195877389" duration="3567000" />
       <workItem from="1615205547623" duration="1218000" />
-      <workItem from="1615209373300" duration="1412000" />
+      <workItem from="1615209373300" duration="2018000" />
     </task>
     <servers />
   </component>

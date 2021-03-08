@@ -37,7 +37,7 @@
     <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
         <span class="navbar-brand">
             <?php if ($showLogo): ?>
-                <img src="<?= $logo; ?>" height="30px">
+                <img src="<?= $logo; ?>" height="30px" class="d-inline-block align-top">
             <?php endif; ?>
             <?= $title; ?>
         </span>
@@ -65,7 +65,7 @@
     <nav class="navbar navbar-dark bg-dark">
         <span class="navbar-brand mb-0 h1">
             <?php if ($showLogo): ?>
-                <img src="<?= $logo; ?>" height="30px">
+                <img src="<?= $logo; ?>" height="30px" class="d-inline-block align-top">
             <?php endif; ?>
             <?= $title; ?>
         </span>
