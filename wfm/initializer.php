@@ -1,4 +1,8 @@
 <?php
+    function getConfigValue($identifier) {
+        return parse_ini_file('wfm/.htconfig')[$identifier];
+    }
+
     function sortFiles($files = array()) {
         $alphabetically = $files;
         sort($alphabetically);

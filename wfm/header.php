@@ -1,3 +1,11 @@
+<?php
+    $title = htmlspecialchars(getConfigValue('title'));
+    $logo = getConfigValue('logo');
+    $showLogo = !empty($logo);
+    $icon = getConfigValue('icon');
+    $showIcon = !empty($icon);
+?>
+
 <!doctype html>
 <html lang="">
 <head>
@@ -19,12 +27,20 @@
     <script src="wfm/libs/pptxjs/js/pptxjs.js"></script>
     <script src="wfm/libs/pptxjs/js/divs2slides.js"></script>
     <link rel="stylesheet" href="wfm/style.css">
-    <title>Web file manager</title>
+    <?php if ($showIcon): ?>
+        <link rel="icon" href="<?= $icon; ?>">
+    <?php endif; ?>
+    <title><?= $title; ?></title>
 </head>
 <body>
 <?php if (isset($_SESSION['wfm_user'])): ?>
     <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
-        <span class="navbar-brand">Web file manager</span>
+        <span class="navbar-brand">
+            <?php if ($showLogo): ?>
+                <img src="<?= $logo; ?>" height="30px">
+            <?php endif; ?>
+            <?= $title; ?>
+        </span>
 
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
@@ -47,7 +63,12 @@
     </nav>
 <?php else: ?>
     <nav class="navbar navbar-dark bg-dark">
-        <span class="navbar-brand mb-0 h1">Web file manager</span>
+        <span class="navbar-brand mb-0 h1">
+            <?php if ($showLogo): ?>
+                <img src="<?= $logo; ?>" height="30px">
+            <?php endif; ?>
+            <?= $title; ?>
+        </span>
 
         <form class="form-inline">
             <?php if (defined('ADMIN_PAGE') && ADMIN_PAGE == 'login'): ?>

@@ -1,0 +1,12 @@
+; This is configuration file. Values are specified as identifier=value
+
+; Text of the title of the page
+title=Web file manager
+
+; URL of the logo image file (absolute or relative)
+; For none logo leave empty
+logo=
+
+; URL of the icon image file (absolute or relative), which will be showed on the browser tab
+; For none icon leave empty
+icon=
