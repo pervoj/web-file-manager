@@ -5,20 +5,10 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="5268b5c2-272b-41ee-944a-d35f68006783" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/wfm/admin/users/.htroles" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/wfm/admin/users/.htuserroles" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/wfm/admin/users/.htusers" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/wfm/admin/users/manager.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/index.php" beforeDir="false" afterPath="$PROJECT_DIR$/index.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/wfm/.htusers" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/wfm/admin/create.php" beforeDir="false" afterPath="$PROJECT_DIR$/wfm/admin/create.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/wfm/admin/delete.php" beforeDir="false" afterPath="$PROJECT_DIR$/wfm/admin/delete.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/wfm/admin/login.php" beforeDir="false" afterPath="$PROJECT_DIR$/wfm/admin/login.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/wfm/admin/upload.php" beforeDir="false" afterPath="$PROJECT_DIR$/wfm/admin/upload.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/wfm/directory.php" beforeDir="false" afterPath="$PROJECT_DIR$/wfm/directory.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/wfm/header.php" beforeDir="false" afterPath="$PROJECT_DIR$/wfm/header.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/wfm/file.php" beforeDir="false" afterPath="$PROJECT_DIR$/wfm/file.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/wfm/initializer.php" beforeDir="false" afterPath="$PROJECT_DIR$/wfm/initializer.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/wfm/style.css" beforeDir="false" afterPath="$PROJECT_DIR$/wfm/style.css" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -56,9 +46,13 @@
     <property name="node.js.path.for.package.tslint" value="project" />
     <property name="node.js.selected.package.eslint" value="(autodetect)" />
     <property name="node.js.selected.package.tslint" value="(autodetect)" />
+    <property name="nodejs_package_manager_path" value="npm" />
     <property name="vue.rearranger.settings.migration" value="true" />
   </component>
   <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$" />
+    </key>
     <key name="MoveFile.RECENT_KEYS">
       <recent name="$PROJECT_DIR$/wfm/admin/users" />
     </key>
@@ -74,7 +68,8 @@
       <workItem from="1614174507259" duration="41000" />
       <workItem from="1614174587187" duration="5732000" />
       <workItem from="1614193420886" duration="2436000" />
-      <workItem from="1614195877389" duration="2963000" />
+      <workItem from="1614195877389" duration="3567000" />
+      <workItem from="1615205547623" duration="621000" />
     </task>
     <servers />
   </component>

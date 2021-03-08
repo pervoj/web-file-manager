@@ -41,6 +41,13 @@ td {
     margin-top: 25px;
 }
 
+.file-preview-md {
+    text-align: left;
+    border: 1px solid lightgray;
+    border-radius: 5px;
+    padding: 10px;
+}
+
 .file-preview-text pre {
     text-align: left;
     border-radius: 5px;

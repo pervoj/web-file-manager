@@ -60,7 +60,17 @@
                 $fileType = array_shift($fileMimeA);
             ?>
 
-            <?php if ($fileType == 'text'): ?>
+            <?php if (getExtension($fileName) == 'md'): ?>
+                <div class="file-preview-md">
+                    <?php
+                        include_once('wfm/libs/parsedown/Parsedown.php');
+                        $parsedown = new Parsedown();
+                        $parsedown->setSafeMode(true);
+                        $parsedown->setMarkupEscaped(true);
+                        echo($parsedown->text(file_get_contents(PATH)));
+                    ?>
+                </div>
+            <?php elseif ($fileType == 'text'): ?>
                 <div class="file-preview-text">
                     <pre><code><?= htmlspecialchars(file_get_contents(PATH)); ?></code></pre>
                 </div>

@@ -51,6 +51,7 @@
             'office_text' => 'far fa-file-word',
             'office_presentation' => 'far fa-file-powerpoint',
             'office_spreadsheet' => 'far fa-file-excel',
+            'markdown' => 'fab fa-markdown',
             'file' => 'far fa-file',
             'dir' => 'far fa-folder',
             'up' => 'fas fa-level-up-alt',
@@ -93,6 +94,7 @@
                 'xlsx',
                 'xls',
                 'ods',
+                'md',
             );
             $extensionIcon = array(
                 'pdf' => 'pdf',
@@ -105,6 +107,7 @@
                 'xlsx' => 'office_spreadsheet',
                 'xls' => 'office_spreadsheet',
                 'ods' => 'office_spreadsheet',
+                'md' => 'markdown',
             );
             $types = array(
                 'application',
