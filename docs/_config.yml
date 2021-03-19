@@ -1,1 +1,4 @@
 theme: jekyll-theme-cayman
+title: Web file manager
+description: Simple file manager
+show_downloads: false
