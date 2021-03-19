@@ -1,6 +1,4 @@
-# Web file manager
-
-Simple file manager
+[![Download: 2.0](https://img.shields.io/badge/Download-2.0-yellow?logo=docusign)](https://github.com/pervoj/web-file-manager/releases/latest) [![License: GPL 3.0](https://img.shields.io/badge/License-GPL%203.0-green)](https://github.com/pervoj/web-file-manager/blob/master/LICENSE)
 
 ## Instalation
 
